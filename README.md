@@ -23,3 +23,14 @@ completed creating the modal
 done Validation of input
 
 ## storing the user input data in redux store
+
+## completed creating the edit modal
+
+## user can edit the information
+
+## user can delete the card
+
+before deleting the card -> one modal is populated for confirmation from the user
+
+if user clicks on yes button then only it will be deleted from the dashboard
+

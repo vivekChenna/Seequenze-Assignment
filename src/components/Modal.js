@@ -1,42 +1,95 @@
-import React, { useState } from "react";
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState, useRef } from "react";
+import { toast } from "react-hot-toast";
 import { addCardData } from "../redux/userCardSlice";
 import { generateUniqueId } from "../utils/helper";
+import { useDispatch } from "react-redux";
+import { CloseModal } from "../redux/ModalSlice";
 
-const Modal = ({ onClose }) => {
+const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
   const dispatch = useDispatch();
 
   const [showErrorMsg, setShowErrorMsg] = useState("");
 
-  const name = useRef(null);
-  const FirstLang = useRef(null);
-  const secondLang = useRef(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    firstLang: "",
+    secondLang: "",
+  });
+
+  useEffect(() => {
+    if (DataToEdit) {
+      setFormData(DataToEdit);
+    }
+  }, [DataToEdit]);
+
   const refModal = useRef(null);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const closeModal = (e) => {
     if (refModal.current === e.target) {
-      onClose();
+      dispatch(CloseModal());
     }
   };
 
   const handleSubmission = () => {
     if (
-      !name.current.value ||
-      !FirstLang.current.value ||
-      !secondLang.current.value
+      formData.name === "" ||
+      formData.firstLang === "" ||
+      formData.secondLang === ""
     ) {
       setShowErrorMsg("Please fill all the details");
+      return;
     } else {
       dispatch(
         addCardData({
           id: generateUniqueId(),
-          name: name.current.value,
-          FirstLang: FirstLang.current.value,
-          secondLang: secondLang.current.value,
+          name: formData.name,
+          FirstLang: formData.firstLang,
+          secondLang: formData.secondLang,
         })
       );
-      onClose();
+
+      toast.success("Successfully Added New Card", {
+        style: { borderRadius: "10px", background: "#45CE30", color: "white" },
+      });
+
+      dispatch(CloseModal());
+    }
+  };
+
+  const handleEditedChanges = (HandleDeleteCard) => {
+    if (
+      formData.name === "" ||
+      formData.firstLang === "" ||
+      formData.secondLang === ""
+    ) {
+      setShowErrorMsg("Please fill all the details");
+      return;
+    } else {
+      HandleDeleteCard();
+
+      dispatch(
+        addCardData({
+          id: generateUniqueId(),
+          name: formData.name,
+          FirstLang: formData.firstLang,
+          secondLang: formData.secondLang,
+        })
+      );
+
+      toast.success("Successfully Edited Card", {
+        style: { borderRadius: "10px", background: "#45CE30", color: "white" },
+      });
+
+      dispatch(CloseModal());
     }
   };
 
@@ -46,50 +99,73 @@ const Modal = ({ onClose }) => {
       onClick={closeModal}
       className=" fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div className="w-[600px] h-[340px] bg-[#1b130f66]">
+      <div className="w-[600px] h-[340px] bg-[#3e3030] rounded-lg bg-opacity-70">
         <form
           onSubmit={(e) => e.preventDefault()}
           className=" flex flex-col gap-6"
         >
           <input
-            ref={name}
+            name="name"
             type="text"
             placeholder="Enter Your Name...."
             required
             className=" outline-none p-3 mt-4 mx-4 rounded-lg text-lg"
+            value={formData.name}
+            onChange={handleInputChange}
           />
           <input
-            ref={FirstLang}
+            name="firstLang"
             type="text"
             placeholder="which is your 1st favorite Programming Language...."
             required
             className=" outline-none p-3 text-lg mx-4 rounded-lg"
+            value={formData.firstLang}
+            onChange={handleInputChange}
           />
           <input
-            ref={secondLang}
+            name="secondLang"
             type="text"
             placeholder="which is your 2nd favorite Programming Language...."
             required
             className=" outline-none p-3 text-lg mx-4 rounded-lg"
+            value={formData.secondLang}
+            onChange={handleInputChange}
           />
 
           {showErrorMsg && (
             <p className=" mx-auto text-white">{showErrorMsg}</p>
           )}
-          <div className=" mx-auto flex gap-20">
-            <button
-              onClick={onClose}
-              className=" bg-red-500 text-white text-lg p-1 rounded-md font-bold"
-            >
-              Cancel
-            </button>
-            <button
-              onClick={handleSubmission}
-              className="bg-green-600 text-white text-lg px-2 py-1 rounded-md font-bold"
-            >
-              Add
-            </button>
-          </div>
+          {isEditClicked ? (
+            <div className="mx-auto flex gap-20">
+              <button
+                onClick={() => dispatch(CloseModal())}
+                className=" bg-red-500 text-white text-lg p-1 rounded-md font-bold"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={() => handleEditedChanges(HandleDeleteCard)}
+                className="bg-green-600 text-white text-lg px-2 py-1 rounded-md font-bold"
+              >
+                Apply Changes
+              </button>
+            </div>
+          ) : (
+            <div className=" mx-auto flex gap-20">
+              <button
+                onClick={() => dispatch(CloseModal())}
+                className=" bg-red-500 text-white text-lg p-1 rounded-md font-bold"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSubmission}
+                className="bg-green-600 text-white text-lg px-2 py-1 rounded-md font-bold"
+              >
+                Add
+              </button>
+            </div>
+          )}
         </form>
       </div>
     </div>
