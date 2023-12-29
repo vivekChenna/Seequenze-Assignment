@@ -21,3 +21,5 @@ All Cards
 completed creating the modal
 
 done Validation of input
+
+## storing the user input data in redux store

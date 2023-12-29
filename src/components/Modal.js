@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { useRef } from "react";
-import {} from "react-redux";
+import { useDispatch } from "react-redux";
+import { addCardData } from "../redux/userCardSlice";
+import { generateUniqueId } from "../utils/helper";
 
 const Modal = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const [showErrorMsg, setShowErrorMsg] = useState("");
 
   const name = useRef(null);
@@ -24,6 +28,14 @@ const Modal = ({ onClose }) => {
     ) {
       setShowErrorMsg("Please fill all the details");
     } else {
+      dispatch(
+        addCardData({
+          id: generateUniqueId(),
+          name: name.current.value,
+          FirstLang: FirstLang.current.value,
+          secondLang: secondLang.current.value,
+        })
+      );
       onClose();
     }
   };
