@@ -9,11 +9,11 @@ import QuestionImg from "../Images/211674_help_circled_icon 1.png";
 
 const SideBar = () => {
   return (
-    <div className=" w-[241px] h-full border bg-white">
+    <div className=" w-[250px] bg-white">
       <div className="pt-4 pl-20">
         <img src={AppLogo} alt="app-logo" />
       </div>
-      <hr className=" h-[1px] border-2 w-[203px] mx-auto mt-[23px]" />
+      <hr className=" h-[1px] border-2 w-[180px] mx-auto mt-[23px]" />
       <div className="flex flex-col pl-8 gap-6 pt-6">
         <div className="flex gap-2 cursor-pointer items-center">
           <img src={CoinStack} alt="coin-stack" />
@@ -28,7 +28,7 @@ const SideBar = () => {
           </p>
         </div>
       </div>
-      <hr className=" h-[1px] border-2 w-[203px] mx-auto mt-[23px]" />
+      <hr className=" h-[1px] border-2 w-[180px] mx-auto mt-[23px]" />
       <div className=" flex flex-col">
         <div className="flex flex-col pt-6 pl-8 gap-6">
           <div className="flex gap-2 cursor-pointer items-center">

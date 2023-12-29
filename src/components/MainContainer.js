@@ -1,9 +1,11 @@
 import Header from "./Header";
+import CardList from "./ProjectSection.js";
 
 const MainContainer = () => {
   return (
-    <div className="">
+    <div className=" w-full h-full">
       <Header />
+      <CardList />
     </div>
   );
 };

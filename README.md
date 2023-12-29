@@ -6,3 +6,6 @@
  adding all images to it
 
 -> completed creating the SideBar
+
+
+-> started building the Header component
