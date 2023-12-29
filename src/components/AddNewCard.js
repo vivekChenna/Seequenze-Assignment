@@ -11,7 +11,7 @@ const AddNewCard = () => {
       >
         Add New Card
       </button>
-      {showModal ? <Modal /> : null}
+      {showModal ? <Modal onClose={() => setShowModal(false)} /> : null}
     </div>
   );
 };
