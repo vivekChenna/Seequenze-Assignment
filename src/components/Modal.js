@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRef } from "react";
+import {} from "react-redux";
 
 const Modal = ({ onClose }) => {
   const [showErrorMsg, setShowErrorMsg] = useState("");
