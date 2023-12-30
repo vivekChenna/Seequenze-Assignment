@@ -10,10 +10,10 @@ const AddNewCard = () => {
   return (
     <div>
       <button
-        className=" border p-3 rounded-lg font-semibold bg-green-400 text-xl text-white"
+        className=" border p-4 rounded-lg font-bold bg-[#FA782F66] text-2xl transition-all text-white hover:bg-[#B24E1E66] hover:transition-colors duration-75"
         onClick={() => dispatch(OpenModal())}
       >
-        Add New Card 
+        Add New Card
       </button>
       {isModalOpen ? <Modal /> : null}
     </div>

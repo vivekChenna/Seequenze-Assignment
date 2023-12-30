@@ -35,4 +35,7 @@ before deleting the card -> one modal is populated for confirmation from the use
 if user clicks on yes button then only it will be deleted from the dashboard
 
 
+## Toaster is added that whenever user creates a card or delete or edit then a toaster message is displayed
+
+
 ## created read view modal where user can all the details regarding the card on a separate modal

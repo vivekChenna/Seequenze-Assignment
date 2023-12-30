@@ -46,13 +46,13 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
       </p>
       <button
         onClick={() => setShowMoreInfo(true)}
-        className=" rounded-md p-1 bg-purple-400 text-white font-semibold font-sans w-max"
+        className=" rounded-md p-1 bg-[#7D3C1566] text-white font-semibold font-sans w-max hover:bg-[#FA782F66]"
       >
         Show More
       </button>
       <div className=" flex justify-between pt-5">
         <button
-          className=" bg-white text-black rounded-md p-1 font-semibold"
+          className=" bg-white text-black rounded-md p-1 font-semibold hover:bg-slate-100"
           onClick={() =>
             handleEditClick({
               name: name,
@@ -65,7 +65,7 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
         </button>
         <button
           onClick={() => setShowBox(true)}
-          className=" bg-red-500 text-white rounded-md p-1 font-semibold"
+          className=" bg-red-500 text-white rounded-md py-1 px-2 font-semibold hover:bg-red-800"
         >
           Delete
         </button>
@@ -84,7 +84,10 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
         />
       ) : null}
       {showMoreInfo ? (
-        <UserProjectInfo details={{ name, FirstLang, textMsg }} />
+        <UserProjectInfo
+          details={{ name, FirstLang, textMsg }}
+          closeInfoBox={() => setShowMoreInfo(false)}
+        />
       ) : null}
     </div>
   );
