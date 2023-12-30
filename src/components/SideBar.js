@@ -14,60 +14,60 @@ const SideBar = () => {
   const isSideBarOpen = useSelector((store) => store.sidebar.isSideBarOpen);
   const dispatch = useDispatch();
   return isSideBarOpen ? (
-    <div className=" w-[250px] bg-white">
-      <div className="pt-4 pl-20">
+    <div className="w-[120px] pl-1 pr-8 md:pr-0 md:w-[250px] bg-white">
+      <div className=" pt-4 pl-1 md:pt-4 md:pl-20">
         <img src={AppLogo} alt="app-logo" />
       </div>
-      <hr className=" h-[1px] border-2 w-[180px] mx-auto mt-[23px]" />
-      <div className="flex flex-col pl-8 gap-6 pt-6">
-        <div className="flex gap-2 cursor-pointer items-center">
+      <hr className=" h-[1px] w-[70px] border-1 mt-[18px]  md:border-2 md:w-[180px] mx-auto md:mt-[23px]" />
+      <div className="flex flex-col pl-1 gap-4 md:pl-8 md:gap-6 pt-6">
+        <div className="flex gap-1 md:gap-2 cursor-pointer items-center">
           <img src={CoinStack} alt="coin-stack" />
-          <p className=" text-[#FA782F] text-[14px]  font-semibold font-sans leading-[26.85px] tracking-wide">
+          <p className=" text-[#FA782F] text-[14px] leading-[14px] font-semibold font-sans md:leading-[26.85px] tracking-wide">
             My Projects
           </p>
         </div>
-        <div className="flex gap-2 cursor-pointer items-center">
+        <div className="flex gap-1 md:gap-2 cursor-pointer items-center">
           <img src={FlowerImg} alt="flower-img" />
-          <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+          <p className="md:leading-[26.85px] leading-[14px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
             Sample Projects
           </p>
         </div>
       </div>
-      <hr className=" h-[1px] border-2 w-[180px] mx-auto mt-[23px]" />
+      <hr className=" h-[1px] border-1 md:border-2 w-[70px] md:w-[180px] mx-auto mt-[18px] md:mt-[23px]" />
       <div className=" flex flex-col">
-        <div className="flex flex-col pt-6 pl-8 gap-6">
-          <div className="flex gap-2 cursor-pointer items-center">
+        <div className="flex flex-col pt-6 pl-1 md:pl-8 gap-6">
+          <div className="flex gap-1 md:gap-2 cursor-pointer items-center">
             <img src={AppsImg} alt="apps-logo" />
-            <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+            <p className="md:leading-[26.85px] leading-[14px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               Apps
             </p>
           </div>
-          <div className="flex gap-2 cursor-pointer items-center">
+          <div className="flex md:gap-2 gap-1 cursor-pointer items-center">
             <img src={MusicPlayerImg} alt="music-player-img" />
-            <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+            <p className="md:leading-[26.85px] leading-[14px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               Intro to Necleo
             </p>
           </div>
         </div>
-        <div className="flex flex-col pl-8 gap-4 pt-80 pb-9">
-          <div className=" flex gap-2 cursor-pointer items-center">
+        <div className="flex flex-col pl-1 md:pl-8 gap-4 pt-80 pb-9">
+          <div className=" flex gap-1 md:gap-2 cursor-pointer items-center">
             <img src={ExclamationImg} alt="exclamation-img" />
-            <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+            <p className="md:leading-[26.85px] leading-[14px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               Help & Support
             </p>
           </div>
-          <div className="flex gap-2 cursor-pointer items-center">
+          <div className="flex gap-1 md:gap-2 cursor-pointer items-center">
             <img src={QuestionImg} alt="QuestionMark-img" />
-            <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+            <p className=" leading-[14px] md:leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               FeedBack
             </p>
           </div>
           <div
-            className="flex gap-2 cursor-pointer items-center"
+            className="flex gap-1 md:gap-2 cursor-pointer items-center"
             onClick={() => dispatch(ToggleSideBar())}
           >
             <img src={CollapseImg} alt="FeedBack-img" />
-            <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
+            <p className="md:leading-[26.85px] leading-[14px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               Collapse
             </p>
           </div>

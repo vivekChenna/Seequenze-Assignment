@@ -33,7 +33,7 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
     textMsg.length > 15 ? `${textMsg.substr(0, 15)}.....` : textMsg;
 
   return (
-    <div className=" flex flex-col p-3 bg-[#FA782F66]  w-[300px] h-[210px] gap-2 rounded-md">
+    <div className=" flex flex-col p-3 bg-[#FA782F66]  md:w-[300px] w-[250px] h-[230px] gap-2 rounded-md">
       <p>
         <span className=" font-semibold font-sans">Name: </span> {name}
       </p>
@@ -51,7 +51,7 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
       >
         Show Details
       </button>
-      <div className=" flex justify-between pt-5">
+      <div className=" flex justify-between md:pt-5 pt-3">
         <button
           className=" bg-white text-black rounded-md p-1 font-semibold hover:bg-slate-100"
           onClick={() =>

@@ -13,7 +13,7 @@ import { ToggleSideBar } from "../redux/sideBarSlice";
 const DummySideBar = () => {
   const dispatch = useDispatch();
   return (
-    <div className=" bg-white p-3 mt-10">
+    <div className=" bg-white p-4 mt-10">
       <div className="mt-6 flex flex-col gap-3">
         <img src={CoinStack} alt="coin-stack" />
         <img src={FlowerImg} alt="flower-logo" />

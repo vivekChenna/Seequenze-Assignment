@@ -8,9 +8,9 @@ const AddNewCard = () => {
   const isModalOpen = useSelector((store) => store.modal.isModalOpen);
 
   return (
-    <div>
+    <div className=" md:m-0  mx-auto">
       <button
-        className=" border p-4 rounded-lg font-bold bg-[#FA782F66] text-2xl transition-all text-white hover:bg-[#B24E1E66] hover:transition-colors duration-75"
+        className=" border md:p-4 p-2 rounded-lg font-bold bg-[#FA782F66] md:text-2xl text-xl transition-all text-white hover:bg-[#B24E1E66] hover:transition-colors duration-75"
         onClick={() => dispatch(OpenModal())}
       >
         Add New Card

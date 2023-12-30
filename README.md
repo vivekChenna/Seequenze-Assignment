@@ -42,3 +42,6 @@ if user clicks on yes button then only it will be deleted from the dashboard
 
 
 ## implemented collapse feature where user can collapse the sidebar and can open it
+
+
+-> added some responsiveness to the web app 

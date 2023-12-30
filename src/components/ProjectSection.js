@@ -7,7 +7,7 @@ const ProjectSection = () => {
   return (
     <div className="bg-[#F8F8F8] flex flex-col">
       <ProjectHeader />
-      <div className=" flex items-center gap-20">
+      <div className=" flex flex-col gap-10 md:flex-row md:items-center md:gap-20">
         <NewProject />
         <AddNewCard />
       </div>

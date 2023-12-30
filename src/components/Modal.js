@@ -99,17 +99,17 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
       onClick={closeModal}
       className=" fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div className="w-[600px] h-[430px] bg-[#3e3030] rounded-lg bg-opacity-70 pt-2">
+      <div className="md:w-[600px] md:h-[430px] w-[370px] h-[360px] bg-[#3e3030] rounded-lg bg-opacity-70 pt-2">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className=" flex flex-col gap-6"
+          className=" flex flex-col md:gap-6 gap-4"
         >
           <input
             name="name"
             type="text"
             placeholder="Enter Your Name...."
             required
-            className=" outline-none p-3 mt-4 mx-4 rounded-lg text-lg"
+            className=" outline-none md:p-3 p-2 mt-4 mx-4 rounded-lg md:text-lg"
             value={formData.name}
             onChange={handleInputChange}
           />
@@ -118,7 +118,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             type="text"
             placeholder="Enter Project Title"
             required
-            className=" outline-none p-3 text-lg mx-4 rounded-lg"
+            className=" outline-none md:p-3 p-2 md:text-lg mx-4 rounded-lg"
             value={formData.firstLang}
             onChange={handleInputChange}
           />
@@ -136,7 +136,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             name="textMsg"
             cols="10"
             rows="4"
-            className=" mx-4 rounded-lg text-lg outline-none py-1 px-2"
+            className=" mx-4 rounded-lg md:text-lg outline-none py-1 px-2"
             placeholder="Write Something About Your Project"
             required
             value={formData.textMsg}
@@ -150,13 +150,13 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             <div className="mx-auto flex gap-20">
               <button
                 onClick={() => dispatch(CloseModal())}
-                className=" bg-red-500 text-white text-lg p-1 rounded-md font-bold"
+                className=" bg-red-500 text-white md:text-xl text-lg md:p-2 px-2 py-1 rounded-md font-bold"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleEditedChanges(HandleDeleteCard)}
-                className="bg-green-600 text-white text-lg px-2 py-1 rounded-md font-bold"
+                className="bg-green-600 text-white md:text-xl text-lg md:p-2 px-2 py-1 rounded-md font-bold"
               >
                 Apply Changes
               </button>
@@ -165,13 +165,13 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             <div className=" mx-auto flex gap-20">
               <button
                 onClick={() => dispatch(CloseModal())}
-                className=" bg-red-500 text-white text-xl p-2 rounded-md font-bold"
+                className=" bg-red-500 text-white md:text-xl text-lg md:p-2 px-2 py-1 rounded-md font-bold"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSubmission}
-                className="bg-green-600 text-white text-xl p-2 rounded-md font-bold"
+                className="bg-green-600 text-white md:text-xl text-lg md:p-2 px-2 py-1 rounded-md font-bold"
               >
                 Add Card
               </button>
