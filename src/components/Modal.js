@@ -69,7 +69,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
     if (
       formData.name === "" ||
       formData.firstLang === "" ||
-      formData.secondLang === ""
+      formData.textMsg === ""
     ) {
       setShowErrorMsg("Please fill all the details");
       return;

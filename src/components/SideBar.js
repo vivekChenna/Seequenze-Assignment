@@ -6,9 +6,14 @@ import AppsImg from "../Images/8674394_ic_fluent_apps_regular_icon 1.png";
 import CollapseImg from "../Images/8686063_ic_fluent_panel_right_expand_icon 1.png";
 import ExclamationImg from "../Images/3669434_feedback_ic_icon (1) 1.png";
 import QuestionImg from "../Images/211674_help_circled_icon 1.png";
+import { useSelector, useDispatch } from "react-redux";
+import { ToggleSideBar } from "../redux/sideBarSlice";
+import DummySideBar from "./DummySideBar";
 
 const SideBar = () => {
-  return (
+  const isSideBarOpen = useSelector((store) => store.sidebar.isSideBarOpen);
+  const dispatch = useDispatch();
+  return isSideBarOpen ? (
     <div className=" w-[250px] bg-white">
       <div className="pt-4 pl-20">
         <img src={AppLogo} alt="app-logo" />
@@ -57,7 +62,10 @@ const SideBar = () => {
               FeedBack
             </p>
           </div>
-          <div className="flex gap-2 cursor-pointer items-center">
+          <div
+            className="flex gap-2 cursor-pointer items-center"
+            onClick={() => dispatch(ToggleSideBar())}
+          >
             <img src={CollapseImg} alt="FeedBack-img" />
             <p className="leading-[26.85px] tracking-wide text-[#C4C4C4] text-[14px]  font-semibold font-sans">
               Collapse
@@ -66,6 +74,8 @@ const SideBar = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <DummySideBar />
   );
 };
 

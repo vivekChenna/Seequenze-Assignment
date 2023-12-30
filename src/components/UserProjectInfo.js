@@ -11,7 +11,7 @@ const UserProjectInfo = ({ details, closeInfoBox }) => {
           onClick={closeInfoBox}
         />
         <div className=" w-[500px] bg-[#FA782F66] rounded-lg p-2 h-max">
-          <h1 className="text-5xl font-semibold text-center">
+          <h1 className="text-4xl font-semibold text-center">
             Project Details
           </h1>
           <div className=" p-4">
@@ -24,7 +24,9 @@ const UserProjectInfo = ({ details, closeInfoBox }) => {
             </p>
             <p className=" text-xl font-bold font-sans">
               Project Description:{" "}
-              <span className=" text-lg font-normal">{details.textMsg}</span>
+              <span className=" text-lg font-normal">
+                {details.textMsg}
+              </span>
             </p>
           </div>
         </div>

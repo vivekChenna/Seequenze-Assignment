@@ -39,3 +39,6 @@ if user clicks on yes button then only it will be deleted from the dashboard
 
 
 ## created read view modal where user can all the details regarding the card on a separate modal
+
+
+## implemented collapse feature where user can collapse the sidebar and can open it

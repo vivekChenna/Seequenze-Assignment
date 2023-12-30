@@ -1,9 +1,23 @@
 import UserLogo from "../Images/Ellipse 1.png";
 import DropDownlogo from "../Images/Page-1.png";
+import AppLogo from "../Images/Logo.png";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const isSideBarOpen = useSelector((store) => store.sidebar.isSideBarOpen);
   return (
-    <div className=" h-[58px]  flex items-center flex-row-reverse justify-between pt-3 bg-white">
+    <div
+      className={
+        isSideBarOpen
+          ? ` h-[58px] flex items-center flex-row-reverse  pt-3 bg-white`
+          : `h-[58px] flex items-center justify-between pt-3 bg-white`
+      }
+    >
+      {!isSideBarOpen && (
+        <div>
+          <img src={AppLogo} alt="App-logo" />
+        </div>
+      )}
       <div className="flex items-center gap-3 w-[214px] h-[36px] mr-8">
         <div className="flex flex-col gap-2">
           <div className=" w-[140px] flex items-center gap-3">

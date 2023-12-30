@@ -29,7 +29,8 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
     setIsEditClicked(true);
   };
 
-  const projectDesc = `${textMsg.substr(0, 20)}.....`;
+  const projectDesc =
+    textMsg.length > 15 ? `${textMsg.substr(0, 15)}.....` : textMsg;
 
   return (
     <div className=" flex flex-col p-3 bg-[#FA782F66]  w-[300px] h-[210px] gap-2 rounded-md">
@@ -48,7 +49,7 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
         onClick={() => setShowMoreInfo(true)}
         className=" rounded-md p-1 bg-[#7D3C1566] text-white font-semibold font-sans w-max hover:bg-[#FA782F66]"
       >
-        Show More
+        Show Details
       </button>
       <div className=" flex justify-between pt-5">
         <button
