@@ -13,7 +13,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
   const [formData, setFormData] = useState({
     name: "",
     firstLang: "",
-    secondLang: "",
+    textMsg: "",
   });
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
           id: generateUniqueId(),
           name: formData.name,
           FirstLang: formData.firstLang,
-          secondLang: formData.secondLang,
+          textMsg: formData.textMsg,
         })
       );
 
@@ -81,7 +81,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
           id: generateUniqueId(),
           name: formData.name,
           FirstLang: formData.firstLang,
-          secondLang: formData.secondLang,
+          textMsg: formData.textMsg,
         })
       );
 
@@ -99,7 +99,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
       onClick={closeModal}
       className=" fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div className="w-[600px] h-[340px] bg-[#3e3030] rounded-lg bg-opacity-70">
+      <div className="w-[600px] h-[430px] bg-[#3e3030] rounded-lg bg-opacity-70 pt-2">
         <form
           onSubmit={(e) => e.preventDefault()}
           className=" flex flex-col gap-6"
@@ -116,21 +116,32 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
           <input
             name="firstLang"
             type="text"
-            placeholder="which is your 1st favorite Programming Language...."
+            placeholder="Enter Project Title"
             required
             className=" outline-none p-3 text-lg mx-4 rounded-lg"
             value={formData.firstLang}
             onChange={handleInputChange}
           />
-          <input
+          {/* <input
             name="secondLang"
             type="text"
-            placeholder="which is your 2nd favorite Programming Language...."
+            placeholder=""
             required
             className=" outline-none p-3 text-lg mx-4 rounded-lg"
             value={formData.secondLang}
             onChange={handleInputChange}
-          />
+          /> */}
+
+          <textarea
+            name="textMsg"
+            cols="10"
+            rows="4"
+            className=" mx-4 rounded-lg text-lg outline-none py-1 px-2"
+            placeholder="Write Something About Your Project"
+            required
+            value={formData.textMsg}
+            onChange={handleInputChange}
+          ></textarea>
 
           {showErrorMsg && (
             <p className=" mx-auto text-white">{showErrorMsg}</p>
@@ -154,15 +165,15 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             <div className=" mx-auto flex gap-20">
               <button
                 onClick={() => dispatch(CloseModal())}
-                className=" bg-red-500 text-white text-lg p-1 rounded-md font-bold"
+                className=" bg-red-500 text-white text-xl p-2 rounded-md font-bold"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSubmission}
-                className="bg-green-600 text-white text-lg px-2 py-1 rounded-md font-bold"
+                className="bg-green-600 text-white text-xl p-2 rounded-md font-bold"
               >
-                Add
+                Add Card
               </button>
             </div>
           )}

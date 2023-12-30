@@ -22,7 +22,7 @@ const CardsList = () => {
   };
 
   return !cardData ? null : (
-    <div className=" flex flex-wrap gap-12 mt-8 ml-8">
+    <div className=" flex flex-wrap gap-12 mt-8 ml-8 items-center justify-center mb-6">
       {cardData.map((data) => {
         return <Card key={data.id} {...data} />;
       })}

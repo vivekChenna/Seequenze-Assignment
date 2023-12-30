@@ -34,3 +34,5 @@ before deleting the card -> one modal is populated for confirmation from the use
 
 if user clicks on yes button then only it will be deleted from the dashboard
 
+
+## created read view modal where user can all the details regarding the card on a separate modal
