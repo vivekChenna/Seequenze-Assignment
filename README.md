@@ -16,7 +16,7 @@ completed creating the Header component
 
 contains 
 All Cards 
-# Feature -> Add New Card which pop ups a modal , you can fill all the details and that will be displayed as a new Card in the Dashboard
+## Feature -> Add New Card which pop ups a modal , you can fill all the details and that will be displayed as a new Card in the Dashboard
 
 completed creating the modal
 
@@ -44,4 +44,8 @@ if user clicks on yes button then only it will be deleted from the dashboard
 ## implemented collapse feature where user can collapse the sidebar and can open it
 
 
--> added some responsiveness to the web app 
+-> added some responsiveness to the web app
+
+-> made some css changes in the sidebar 
+
+->  made some cleanup 

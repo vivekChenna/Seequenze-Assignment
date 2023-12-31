@@ -1,25 +1,11 @@
-import { useEffect, useState } from "react";
 import Card from "./Card";
+import useCardsData from "../hooks/useCardsData";
+import { useSelector } from "react-redux";
 
 const CardsList = () => {
-  const [cardData, setCardData] = useState(null);
+  useCardsData();
 
-  useEffect(() => {
-    getCardsData();
-  }, []);
-
-  const getCardsData = async () => {
-    try {
-      let response = await fetch(
-        "https://picsum.photos/v2/list?page=1&limit=6"
-      );
-      let data = await response.json();
-      console.log(data);
-      setCardData(data);
-    } catch (error) {
-      throw new Error("something went wrong");
-    }
-  };
+  const cardData = useSelector((store) => store.cardSlice?.cardData);
 
   return !cardData ? null : (
     <div className=" flex flex-wrap gap-12 mt-8 md:ml-8 ml-4 items-center md:justify-center mb-6">
