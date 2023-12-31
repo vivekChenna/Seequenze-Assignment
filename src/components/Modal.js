@@ -5,7 +5,12 @@ import { generateUniqueId } from "../utils/helper";
 import { useDispatch } from "react-redux";
 import { CloseModal } from "../redux/ModalSlice";
 
-const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
+const Modal = ({
+  dataToEdit,
+  isEditClicked,
+  HandleDeleteCard,
+  setIsEditClicked,
+}) => {
   const dispatch = useDispatch();
 
   const [showErrorMsg, setShowErrorMsg] = useState("");
@@ -16,11 +21,13 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
     textMsg: "",
   });
 
+  console.log("after clicking on cancel edit rendered");
+
   useEffect(() => {
-    if (DataToEdit) {
-      setFormData(DataToEdit);
+    if (dataToEdit) {
+      setFormData(dataToEdit);
     }
-  }, [DataToEdit]);
+  }, [dataToEdit]);
 
   const refModal = useRef(null);
 
@@ -93,13 +100,24 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
     }
   };
 
+  const HandleEditCancelBtn = () => {
+    console.log("cancel edit btn called");
+    setFormData({
+      name: "",
+      firstLang: "",
+      textMsg: "",
+    });
+    setIsEditClicked(!isEditClicked);
+    dispatch(CloseModal());
+  };
+
   return (
     <div
       ref={refModal}
       onClick={closeModal}
       className=" fixed inset-0 bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div className="md:w-[600px] md:h-[430px] w-[370px] h-[360px] bg-[#3e3030] rounded-lg bg-opacity-70 pt-2">
+      <div className="md:w-[600px] md:h-[430px] w-[370px] h-[360px] bg-[#ee9ca7] rounded-lg bg-opacity-85 pt-2 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
         <form
           onSubmit={(e) => e.preventDefault()}
           className=" flex flex-col md:gap-6 gap-4"
@@ -122,16 +140,6 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
             value={formData.firstLang}
             onChange={handleInputChange}
           />
-          {/* <input
-            name="secondLang"
-            type="text"
-            placeholder=""
-            required
-            className=" outline-none p-3 text-lg mx-4 rounded-lg"
-            value={formData.secondLang}
-            onChange={handleInputChange}
-          /> */}
-
           <textarea
             name="textMsg"
             cols="10"
@@ -149,7 +157,7 @@ const Modal = ({ DataToEdit, isEditClicked, HandleDeleteCard }) => {
           {isEditClicked ? (
             <div className="mx-auto flex gap-20">
               <button
-                onClick={() => dispatch(CloseModal())}
+                onClick={() => HandleEditCancelBtn()}
                 className=" bg-red-500 text-white md:text-xl text-lg md:p-2 px-2 py-1 rounded-md font-bold"
               >
                 Cancel

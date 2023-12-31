@@ -10,15 +10,15 @@ const Header = () => {
       className={
         isSideBarOpen
           ? ` h-[58px] flex items-center md:flex-row-reverse p-1 pt-3 bg-white`
-          : `h-[58px] flex items-center md:justify-around pt-3 bg-white`
+          : `h-[58px] flex items-center md:justify-between pt-3 bg-white`
       }
     >
       {!isSideBarOpen && (
-        <div className=" md:w-full w-16 md:mx-0 mx-6">
+        <div className=" md:w-max w-16 md:mx-0 mx-6">
           <img src={AppLogo} alt="App-logo" />
         </div>
       )}
-      <div className="flex items-center md:gap-3 md:w-[214px] md:h-[36px]  md:self-end md:mr-8 mx-auto">
+      <div className="flex items-center md:gap-3 md:w-[214px] md:h-[36px] md:mr-8 mx-auto">
         <div className="flex flex-col md:gap-2 gap-1">
           <div className="md:w-[140px] w-[120px] flex items-center md:gap-3 gap-1">
             <p className=" text-[14px]  md:leading-[16.42px] leading-[14px] font-medium">

@@ -14,7 +14,7 @@ const SideBar = () => {
   const isSideBarOpen = useSelector((store) => store.sidebar.isSideBarOpen);
   const dispatch = useDispatch();
   return isSideBarOpen ? (
-    <div className="w-[120px] pl-1 pr-8 md:pr-0 md:w-[250px] bg-white">
+    <div className=" sticky top-0 w-[120px] h-screen pl-1 pr-8 md:pr-0 md:w-[250px] bg-white">
       <div className=" pt-4 pl-1 md:pt-4 md:pl-20">
         <img src={AppLogo} alt="app-logo" />
       </div>

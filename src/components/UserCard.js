@@ -33,7 +33,7 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
     textMsg.length > 15 ? `${textMsg.substr(0, 15)}.....` : textMsg;
 
   return (
-    <div className=" flex flex-col p-3 bg-[#FA782F66]  md:w-[300px] w-[250px] h-[230px] gap-2 rounded-md">
+    <div className=" flex flex-col p-3 bg-[#FA782F66]  md:w-[300px] w-[250px] h-[230px] gap-2 rounded-md shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
       <p>
         <span className=" font-semibold font-sans">Name: </span> {name}
       </p>
@@ -73,8 +73,9 @@ const UserCard = ({ name, FirstLang, textMsg, id }) => {
       </div>
       {isModalOpen ? (
         <Modal
-          DataToEdit={dataToEdit}
+        dataToEdit={dataToEdit}
           isEditClicked={isEditClicked}
+          setIsEditClicked={setIsEditClicked}
           HandleDeleteCard={() => HandleDeleteCard(id)}
         />
       ) : null}
