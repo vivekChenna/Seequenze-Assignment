@@ -38,7 +38,7 @@ if user clicks on yes button then only it will be deleted from the dashboard
 ## Toaster is added that whenever user creates a card or delete or edit then a toaster message is displayed
 
 
-## created read view modal where user can all the details regarding the card on a separate modal
+## created read view modal where user can see all the details regarding the card on a separate modal
 
 
 ## implemented collapse feature where user can collapse the sidebar and can open it
@@ -49,3 +49,5 @@ if user clicks on yes button then only it will be deleted from the dashboard
 -> made some css changes in the sidebar 
 
 ->  made some cleanup 
+
+-> completed creating the app
