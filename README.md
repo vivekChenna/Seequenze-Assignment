@@ -14,6 +14,10 @@ completed creating the Header component
 
 -> started building the Main Container
 
+-> storing the api data in redux store
+
+## used Memoization concept for not fetching the api data after every render(saving api calls)
+
 contains 
 All Cards 
 ## Feature -> Add New Card which pop ups a modal , you can fill all the details and that will be displayed as a new Card in the Dashboard
