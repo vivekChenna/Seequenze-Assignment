@@ -13,6 +13,9 @@ completed creating the Header component
 
 -> started building the Main Container
 
+## Live Link
+https://my-projects-react-app.netlify.app/
+
 ## Displaying Cards
 
 ![Screenshot (293)](https://github.com/vivekChenna/Seequenze-Assignment/assets/99558167/a344afc2-77a6-4cc0-ba16-909013779367)
